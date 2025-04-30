@@ -1,0 +1,170 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Welcome from "../components/Welcome.astro";
+import ProjectsContainer from "../components/projects/ProjectsContainer.astro";
+import SkillSquare from "../components/skills/SkillSquare.astro";
+import CV from "../components/CV.astro";
+
+import Jumping from "../assets/SVG/JumpingBlack.svg";
+import Deer from "../assets/SVG/Deer.svg";
+import Deer2 from "../assets/SVG/Deer2.svg";
+import Fishing from "../assets/SVG/Fishing.svg";
+---
+
+<Layout>
+	<section id="About">
+		<div class="SectionOverlay">
+			<Welcome id="WelcomeComponent" />
+		</div>
+		<Jumping id={"jumping-svg"} />
+	</section>
+	<section id="Projects">
+		<div class="SectionOverlayProjects">
+			<ProjectsContainer />
+		</div>
+		<Deer id={"deer-svg"} />
+	</section>
+	<section id="Skills">
+		<div class="SectionOverlaySkills">
+			<SkillSquare />
+		</div>
+		<Deer2 id={"deer-2-svg"} />
+	</section>
+	<section id="Contact">
+		<div class="SectionOverlay">
+			<CV />
+		</div>
+		<Fishing id={"fishing-svg"} />
+	</section>
+</Layout>
+
+<style>
+	.SectionOverlay {
+		mask-image: linear-gradient(
+			180deg,
+			transparent 0%,
+			transparent 10%,
+			black 15%,
+			black calc(100% - 40px),
+			transparent 100%
+		);
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		overflow-y: auto;
+	}
+	.SectionOverlaySkills {
+		mask-image: linear-gradient(
+			180deg,
+			transparent 0%,
+			transparent 10px,
+			black 35px,
+			black calc(100% - 20px),
+			transparent 100%
+		);
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		overflow-y: auto;
+	}
+	.SectionOverlayProjects {
+		mask-image: linear-gradient(
+			180deg,
+			transparent 0%,
+			transparent 100px,
+			black 120px,
+			black calc(100% - 20px),
+			transparent 100%
+		);
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		overflow-y: auto;
+	}
+	.SectionOverlayProjects:has(#image-modal:not(.hidden)) {
+		mask-image: linear-gradient(
+			180deg,
+			transparent 0%,
+			transparent 10px,
+			black 20px,
+			black calc(100% - 20px),
+			transparent 100%
+		);
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		overflow-y: auto;
+	}
+	@media (max-width: 750px), (max-height: 750px) {
+		.SectionOverlay {
+			mask-image: linear-gradient(
+				180deg,
+				transparent 0%,
+				transparent 4%,
+				black 8%,
+				black calc(100% - 20px),
+				transparent 100%
+			);
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			overflow-y: auto;
+		}
+		.SectionOverlaySkills {
+			mask-image: linear-gradient(
+				180deg,
+				transparent 0%,
+				black 5%,
+				black calc(100% - 20px),
+				transparent 100%
+			);
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			overflow-y: auto;
+		}
+		.SectionOverlayProjects {
+			mask-image: linear-gradient(
+				180deg,
+				transparent 0%,
+				transparent 20px,
+				black 70px,
+				black calc(100% - 20px),
+				transparent 100%
+			);
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			overflow-y: auto;
+		}
+	}
+</style>
+<script type="module">
+	const sections = ["About", "Projects", "Skills", "Contact"];
+	document.addEventListener("sectionChanged", (event) => {
+		const selectedSection = event.detail;
+		sections.forEach((x) => {
+			if (x === selectedSection) {
+				document.getElementById(x).classList.add("section-fade-in");
+				document.getElementById(x).classList.remove("section-fade-out");
+			} else {
+				document.getElementById(x).classList.add("section-fade-out");
+				document.getElementById(x).classList.remove("section-fade-in");
+			}
+		});
+	});
+</script>

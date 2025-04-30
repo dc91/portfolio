@@ -1,0 +1,61 @@
+:root {
+  --cubeWidth: calc((23vw + 23vh)/2);
+  --cubeDistance: calc(var(--cubeWidth)*1.025/-2);
+  --cubeDistance2: calc(var(--cubeDistance)*1.04);
+
+  --cubeWidth2: min(60vw, 40vh);
+  --cubeDistance22: calc(var(--cubeWidth2)*1.025/-2);
+  --cubeDistance33: calc(var(--cubeDistance22)*1.05);
+
+  --breatheLength: 4s;
+
+  --darkBlue: #579CD4;
+  --lightBlue: #A0DBF7;
+  --midBlue: #63BDEB;
+  --gray: #CCCCCB;
+  --red: #CE9178;
+  --darkGray: #808073;
+  --beige: #D7BA7D;
+  --yellow: #FDD700;
+  --purple: #C486BA;
+  --green: #59C2AD;
+}
+.ccSymbol {
+  color: var(--darkGray);
+}
+
+.ccTag {
+  color: var(--darkBlue);
+}
+
+.ccAttribute {
+  color: var(--lightBlue);
+}
+
+.ccString {
+  color: var(--red);
+}
+
+.ccText {
+  color: var(--gray);
+}
+
+.ccClass {
+  color: var(--beige);
+}
+
+.ccCurly {
+  color: var(--yellow);
+}
+
+.ccImport {
+  color: var(--purple);
+}
+
+.ccVar {
+  color: var(--purple);
+}
+
+.ccReact {
+  color: var(--green);
+}

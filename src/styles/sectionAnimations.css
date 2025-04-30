@@ -1,0 +1,318 @@
+/* -------------------- */
+/*----Position SVG----- */
+/* -------------------- */
+#jumping-svg {
+    position: fixed;
+    bottom: 70px;
+    right: 50px;
+    width: min(20vw, 20vh);
+    transition: all 0.8s ease;
+    pointer-events: none;
+    z-index: -1;
+}
+
+#deer-svg {
+    position: fixed;
+    bottom: 65px;
+    left: 0;
+    width: 25vw;
+    min-width: 180px;
+    pointer-events: none;
+}
+
+#deer-2-svg {
+    position: fixed;
+    bottom: 70px;
+    left: 0;
+    pointer-events: none;
+}
+
+#fishing-svg {
+    position: fixed;
+    bottom: 70px;
+    right: 0;
+    width: 35vw;
+    pointer-events: none;
+}
+
+/* -------------------- */
+/*--Position Sections-- */
+/* -------------------- */
+#About {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 80px;
+    overflow-y: auto;
+}
+
+#Projects,
+#Skills,
+#Contact {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 80px;
+    opacity: 0;
+    display: none;
+    overflow-y: auto;
+}
+
+.SectionOverlay::-webkit-scrollbar,
+.SectionOverlaySkills::-webkit-scrollbar,
+.SectionOverlayProjects::-webkit-scrollbar {
+    width: 15px;
+}
+
+.SectionOverlay::-webkit-scrollbar-track,
+.SectionOverlaySkills::-webkit-scrollbar-track,
+.SectionOverlayProjects::-webkit-scrollbar-track {
+    background: none;
+}
+
+.SectionOverlay::-webkit-scrollbar-thumb,
+.SectionOverlaySkills::-webkit-scrollbar-thumb,
+.SectionOverlayProjects::-webkit-scrollbar-thumb {
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    border: 3px solid rgb(187, 187, 187);
+}
+
+/* -------------------- */
+/*----Fade Sections---- */
+/* -------------------- */
+#About.section-fade-in,
+#Projects.section-fade-in,
+#Skills.section-fade-in,
+#Contact.section-fade-in {
+    opacity: 1;
+    display: block;
+    animation: ToggleDisplayOn 0.8s ease forwards;
+}
+
+#About.section-fade-out,
+#Projects.section-fade-out,
+#Skills.section-fade-out,
+#Contact.section-fade-out {
+    animation: ToggleDisplayOff 0.8s ease forwards;
+}
+
+
+/* -------------------- */
+/*--Slide bottom SVG--- */
+/* -------------------- */
+#About.section-fade-out #jumping-svg {
+    animation: SlideSVGDown 0.5s ease forwards;
+}
+
+#About.section-fade-in #jumping-svg {
+    animation: SlideSVGUp 0.5s ease forwards;
+}
+
+#Projects.section-fade-out #deer-svg {
+    animation: SlideDeerOut 0.5s ease forwards;
+}
+
+#Projects.section-fade-in #deer-svg {
+    animation: SlideDeerIn 0.5s ease forwards;
+}
+
+#Skills.section-fade-out #deer-2-svg {
+    animation: SlideSVGDown 0.5s ease forwards;
+}
+
+#Skills.section-fade-in #deer-2-svg {
+    animation: SlideSVGUp 0.5s ease forwards;
+}
+
+#Contact.section-fade-out #fishing-svg {
+    animation: SlideFishOut 0.5s ease forwards;
+}
+
+#Contact.section-fade-in #fishing-svg {
+    animation: SlideFishIn 0.5s ease forwards;
+}
+
+@keyframes SlideSVGDown {
+    0% {
+        bottom: 40px;
+    }
+
+    100% {
+        bottom: -50%;
+    }
+}
+
+@keyframes SlideSVGUp {
+    0% {
+        bottom: -50%;
+    }
+
+    100% {
+        bottom: 40px;
+    }
+}
+
+@keyframes SlideDeerOut {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: -50%;
+    }
+}
+
+@keyframes SlideDeerIn {
+    0% {
+        left: -50%;
+    }
+
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes SlideFishOut {
+    0% {
+        right: 0;
+    }
+
+    100% {
+        right: -50%;
+    }
+}
+
+@keyframes SlideFishIn {
+    0% {
+        right: -50%;
+    }
+
+    100% {
+        right: 0;
+    }
+}
+
+@keyframes ToggleDisplayOn {
+    0% {
+        opacity: 0;
+        display: none;
+    }
+
+    25% {
+        opacity: 0;
+        display: none;
+    }
+
+    100% {
+        opacity: 1;
+        display: block;
+    }
+}
+
+@keyframes ToggleDisplayOff {
+    0% {
+        opacity: 1;
+        display: block;
+    }
+
+    75% {
+        opacity: 0;
+        display: block;
+    }
+
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+@media (max-width: 750px),
+(max-height: 750px) {
+    .SectionOverlay::-webkit-scrollbar,
+    .SectionOverlaySkills::-webkit-scrollbar,
+    .SectionOverlayProjects::-webkit-scrollbar {
+        width: 0px;
+    }
+
+    .SectionOverlay::-webkit-scrollbar-track,
+    .SectionOverlaySkills::-webkit-scrollbar-track,
+    .SectionOverlayProjects::-webkit-scrollbar-track {
+        background: none;
+    }
+
+    .SectionOverlay::-webkit-scrollbar-thumb,
+    .SectionOverlaySkills::-webkit-scrollbar-thumb,
+    .SectionOverlayProjects::-webkit-scrollbar-thumb {
+        background-color: rgb(0, 0, 0);
+        border-radius: 20px;
+        border: 0px solid rgb(187, 187, 187);
+    }
+
+    #jumping-svg {
+        bottom: 40px;
+    }
+
+    #deer-svg {
+        bottom: 45px;
+        min-width: 150px;
+        width: 150px;
+    }
+
+    #deer-2-svg {
+        bottom: 40px;
+        opacity: 0.3;
+    }
+
+    #fishing-svg {
+        bottom: 45px;
+    }
+
+    #About {
+        bottom: 50px;
+    }
+
+    #Projects,
+    #Skills,
+    #Contact {
+        bottom: 50px;
+    }
+}
+
+@media (max-height: 400px) {
+    #jumping-svg {
+        opacity: 0;
+        transition: all 0.5s ease;
+        pointer-events: none;
+    }
+
+    #deer-svg {
+        opacity: 0;
+        transition: all 0.5s ease;
+        pointer-events: none;
+    }
+
+    #deer-2-svg {
+        opacity: 0;
+        transition: all 0.5s ease;
+        pointer-events: none;
+    }
+
+    #fishing-svg {
+        opacity: 0;
+        transition: all 0.5s ease;
+        pointer-events: none;
+    }
+
+    /* #About {
+        bottom: 30px;
+    }
+    
+    #Projects,
+    #Skills,
+    #Contact {
+        bottom: 30px;
+    } */
+}

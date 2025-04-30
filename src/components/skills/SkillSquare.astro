@@ -1,0 +1,152 @@
+---
+import skillData from "./skillData.ts";
+---
+
+<div class="cube-container">
+    <div id="cube-positioner">
+        <div id="the-cube">
+            <section id="face-front" class="face">
+                <h1>Frontend Skills</h1>
+                <article id="front-skill-container">
+                    <h2 id="front-skill-title" class="skill-title"></h2>
+                    <div id="front-skill-content" class="skill-content front-skill-content"></div>
+                </article>
+            </section>
+            <section id="face-right" class="face">
+                <h1>Backend Skills</h1>
+                <article id="right-skill-container">
+                    <h2 id="right-skill-title" class="skill-title"></h2>
+                    <div id="right-skill-content" class="skill-content right-skill-content"></div>
+                </article>
+            </section>
+            <section id="face-left" class="face">
+                <h1>Other Skills</h1>
+                <article id="left-skill-container">
+                    <h2 id="left-skill-title" class="skill-title"></h2>
+                    <div id="left-skill-content" class="skill-content left-skill-content"></div>
+                </article>
+            </section>
+        </div>
+        <span class="reset-cube-btn"> Reset Cube </span>
+        <div id="front-skill-picker" class="skill-picker">
+            {
+                skillData.map(
+                    (s) =>
+                        s.skillBranch === "Frontend" && (
+                            <button class="skill-btn front-btn">
+                                {s.skillName}
+                            </button>
+                        ),
+                )
+            }
+        </div>
+        <div id="right-skill-picker" class="skill-picker">
+            {
+                skillData.map(
+                    (s) =>
+                        s.skillBranch === "Backend" && (
+                            <button class="skill-btn right-btn">
+                                {s.skillName}
+                            </button>
+                        ),
+                )
+            }
+        </div>
+        <div id="left-skill-picker" class="skill-picker">
+            {
+                skillData.map(
+                    (s) =>
+                        s.skillBranch === "Other" && (
+                            <button class="skill-btn left-btn">
+                                {s.skillName}
+                            </button>
+                        ),
+                )
+            }
+        </div>
+    </div>
+</div>
+
+<style></style>
+
+<script type="module" define:vars={{ skillData }}>
+    const cube = document.getElementById("the-cube");
+    const faces = document.querySelectorAll(".face");
+    const resetBtn = document.getElementsByClassName("reset-cube-btn");
+
+    const skillBtns = document.querySelectorAll(".skill-btn");
+    const frontSkillTitle = document.getElementById("front-skill-title");
+    const frontSkillContent = document.getElementById("front-skill-content");
+    const rightSkillTitle = document.getElementById("right-skill-title");
+    const rightSkillContent = document.getElementById("right-skill-content");
+    const leftSkillTitle = document.getElementById("left-skill-title");
+    const leftSkillContent = document.getElementById("left-skill-content");
+
+    skillBtns.forEach((btn) => {
+        btn.addEventListener("click", (event) => {
+            const skillName = event.target.innerText;
+            const selectedSkill = skillData.find(
+                (skill) => skill.skillName === skillName,
+            );
+            faces.forEach((face) => {
+                face.classList.add("hide-face-titles");
+            });
+            if (selectedSkill.skillBranch === "Frontend") {
+                frontSkillTitle.innerText = selectedSkill.skillName;
+                frontSkillContent.innerHTML = selectedSkill.skillContent;
+            } else if (selectedSkill.skillBranch === "Backend") {
+                rightSkillTitle.innerText = selectedSkill.skillName;
+                rightSkillContent.innerHTML = selectedSkill.skillContent;
+            } else if (selectedSkill.skillBranch === "Other") {
+                leftSkillTitle.innerText = selectedSkill.skillName;
+                leftSkillContent.innerHTML = selectedSkill.skillContent;
+            }
+        });
+    });
+
+    resetBtn[0].addEventListener("click", () => {
+        cube.classList = "";
+        cube.classList.add("face-collapsing");
+        frontSkillTitle.innerText = "";
+        frontSkillContent.innerHTML = "";
+        rightSkillTitle.innerText = "";
+        rightSkillContent.innerHTML = "";
+        leftSkillTitle.innerText = "";
+        leftSkillContent.innerHTML = "";
+        faces.forEach((face) => {
+            face.classList.remove("paused-breathing");
+            face.classList.remove("hide-face-titles");
+        });
+        setTimeout(() => {
+            cube.classList.remove("face-collapsing");
+        }, 1000);
+    });
+
+    faces.forEach((face) => {
+        face.addEventListener("click", () => {
+            const newClass = `${face.id}-showing`;
+            cube.classList.add(newClass);
+            faces.forEach((face) => {
+                face.classList.add("paused-breathing");
+            });
+        });
+    });
+
+    document.addEventListener("sectionChanged", (event) => {
+        setTimeout(() => {
+            cube.classList.remove("face-front-showing");
+            cube.classList.remove("face-right-showing");
+            cube.classList.remove("face-left-showing");
+            frontSkillTitle.innerText = "";
+            frontSkillContent.innerHTML = "";
+            rightSkillTitle.innerText = "";
+            rightSkillContent.innerHTML = "";
+            leftSkillTitle.innerText = "";
+            leftSkillContent.innerHTML = "";
+            faces.forEach((face) => {
+                face.classList.remove("paused-breathing");
+                face.classList.remove("hide-face-titles");
+            });
+        }, 500);
+    });
+</script>

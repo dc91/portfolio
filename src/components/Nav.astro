@@ -1,0 +1,301 @@
+---
+import Head from "../assets/SVG/HeaderBlack.svg";
+import Line from "../assets/SVG/Line.svg";
+import Circle from "../assets/SVG/Circle.svg";
+
+const sections = ["About", "Projects", "Skills", "Contact"];
+
+const defaultSection = sections[0];
+---
+
+<div id="NavDiv">
+    <Head class="head-svg" />
+    <span id="Bubble-text"> Welcome To My Portfolio! </span>
+    <div id="NavListDiv">
+        <ul>
+            {
+                sections.map((section) => (
+                    <li>
+                        <label for={section + "_radio"}>
+                        <input
+                            type="radio"
+                            id={section + "_radio"}
+                            name="where-to"
+                            value={section}
+                            {...(section === defaultSection
+                                ? { checked: true }
+                                : {})}
+                        />
+                        <Circle class="circle-svg" />
+                        {section}</label>
+                        <Line class="line-svg" />
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+</div>
+<button id="toggle-menu-btn">☰</button>
+<style>
+    #NavDiv.hidden {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease-in-out;
+    }
+    #toggle-menu-btn {
+        position: fixed;
+        top: 0;
+        left: 0;
+        font-weight: bold;
+        font-size: 1.2rem;
+        background: none;
+        border: none;
+        color: #fff;
+        display: none;
+        cursor: pointer;
+    }
+    #NavDiv {
+        z-index: 20;
+        position: absolute;
+        padding-top: 1em;
+        padding-left: 2em;
+        overflow: hidden;
+        pointer-events: none;
+    }
+    #Bubble-text {
+        position: absolute;
+        left: 186px;
+        top: 42px;
+        font-size: 1.6rem;
+        font-weight: bold;
+        max-inline-size: 155px;
+        transition: opacity 0.25s ease-in-out;
+        transform: rotateZ(-3deg);
+    }
+    .simple-fade {
+        opacity: 0;
+    }
+    #NavListDiv {
+        pointer-events: initial;
+        width: max-content;
+    }
+    #NavListDiv li {
+        width: 160px;
+    }
+    #NavListDiv input {
+        appearance: none;
+    }
+    #NavListDiv label {
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 0.15s ease-in-out;
+    }
+    #NavListDiv label:hover {
+        color: rgba(255, 0, 0, 0.75);
+        font-weight: bold;
+        transition: all 0.15s ease-in-out;
+    }
+    #NavListDiv label:has(input[type="radio"]:checked) {
+        color: #f00;
+        font-weight: bold;
+        cursor: default;
+    }
+    .head-svg {
+        width: 330px;
+        padding-left: 1em;
+    }
+    .line-svg {
+        position: relative;
+        bottom: 0.6em;
+        width: 130px;
+        transition: all 0.25s ease;
+    }
+    /* #NavDiv:not(.show-menu)#NavListDiv
+        label:has(input[type="radio"]:checked)
+        + .circle-svg
+        + .line-svg {
+        width: 130px;
+        transition: all 0.25s ease;
+    } */
+    .circle-svg {
+        width: 10%;
+        margin-left: -0.7em;
+        padding-right: 0.5em;
+        transform: translateY(4px);
+        width: 5%;
+        transition: all 0.25s ease;
+    }
+    input[type="radio"]:checked + .circle-svg {
+        transform: translateY(1px);
+        width: 10%;
+        margin-left: -0.5em;
+        padding-right: 0.7em;
+        transition: all 0.25s ease;
+    }
+    @media (max-width: 750px), (max-height: 750px) {
+        #NavDiv {
+            position: absolute;
+            padding-top: 0;
+            padding-left: 0em;
+            background-color: #000;
+            box-shadow: #0000003f 0px 2px 10px 1px;
+            height: 35px;
+            width: 100%;
+            transition:
+                height 0.2s ease-in-out,
+                width 0.2s ease-in-out 0.2s,
+                background-color 0.2s ease-in-out;
+            pointer-events: initial;
+        }
+        #NavDiv.show-menu {
+            background-color: #ffffff;
+            box-shadow: #0000003f 0px 2px 20px 10px;
+            height: 250px;
+            width: clamp(0px, 100%, 350px);
+            /* max-width: 350px; */
+            transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
+        }
+        #Bubble-text {
+            display: none;
+        }
+        #NavListDiv {
+            position: absolute;
+            left: 2em;
+            top: 2em;
+            width: 180px;
+            display: none;
+        }
+        #NavDiv.show-menu #NavListDiv {
+            display: block;
+        }
+        #NavListDiv label {
+            padding-left: 10px;
+        }
+
+        .line-svg {
+            width: 130px;
+        }
+        #toggle-menu-btn {
+            position: fixed;
+            z-index: 30;
+            display: block;
+            top: 0;
+            left: 0;
+            /* right: unset; */
+        }
+        #NavDiv.show-menu + #toggle-menu-btn {
+            color: #000;
+            background-color: #fff;
+            box-shadow: #db010165 0px 0px 8px 3px;
+            border-radius: 3px;
+            font-size: 1.8rem;
+            /* right: 30px; */
+            left: 85px;
+            top: 200px;
+            font-size: 1.6rem;
+            transform: rotateZ(-3deg);
+            transition: all 0.2s ease-in-out;
+        }
+
+        #NavDiv.show-menu + #toggle-menu-btn:hover {
+            color: #f00;
+            box-shadow: #db010165 0px 0px 5px 1px;
+        }
+        .head-svg {
+            width: 320px;
+            padding-left: 200px;
+        }
+        .circle-svg {
+            width: 10%;
+            margin-left: -0.7em;
+            padding-right: 0.5em;
+            transform: translateY(4px);
+            width: 5%;
+            transition: all 0.25s ease;
+        }
+        input[type="radio"]:checked + .circle-svg {
+            width: 10%;
+            margin-left: -0.7em;
+            padding-right: 0.8em;
+            transform: translateY(1px) translateX(20px);
+        }
+    }
+    @media (max-width: 500px) {
+        #NavDiv.show-menu {
+            width: 100%;
+            max-width: unset;
+        }
+        #NavDiv {
+            position: absolute;
+            padding-top: 0;
+            padding-left: 0em;
+            background-color: #000;
+            box-shadow: #0000003f 0px 2px 10px 1px;
+            height: 35px;
+            width: 100%;
+            transition:
+                all 0.2s ease-in-out;
+            pointer-events: initial;
+        }
+    }
+</style>
+<script type="module">
+    const messages = {
+        About: "Welcome To My Portfolio!",
+        Projects: "Check Out My Projects!",
+        Skills: "Look At These Skills!",
+        Contact: "Wanna Talk About It?",
+    };
+
+    const radios = document.querySelectorAll('input[name="where-to"]');
+    const bubble = document.getElementById("Bubble-text");
+    const menuBTN = document.getElementById("toggle-menu-btn");
+    const navDiv = document.getElementById("NavDiv");
+    const headSVG = document.querySelector(".head-svg");
+
+    menuBTN.addEventListener("click", () => {
+        menuBTN.textContent = "";
+        navDiv.classList.toggle("show-menu");
+        setTimeout(() => {
+            if (navDiv.classList.contains("show-menu")) {
+                menuBTN.textContent = "Close Menu";
+            } else {
+                menuBTN.textContent = "☰";
+            }
+        }, 200);
+    });
+
+    function applyFade() {
+        bubble.classList.add("simple-fade");
+        setTimeout(() => {
+            bubble.classList.remove("simple-fade");
+        }, 250);
+    }
+
+    radios.forEach((radio) => {
+        radio.addEventListener("change", () => {
+            const value = radio.value;
+            notifyChange(value);
+            applyFade();
+            setTimeout(() => {
+                bubble.textContent = messages[value];
+            }, 250);
+        });
+    });
+
+    function notifyChange(selectedValue) {
+        const event = new CustomEvent("sectionChanged", {
+            detail: selectedValue,
+        });
+        document.dispatchEvent(event);
+        navDiv.classList.remove("show-menu");
+        menuBTN.textContent = "☰";
+    }
+
+    document.addEventListener("click", (event) => {
+        if (!navDiv.contains(event.target) && !menuBTN.contains(event.target)) {
+            navDiv.classList.remove("show-menu");
+            menuBTN.textContent = "☰";
+        }
+    });
+</script>

@@ -1,0 +1,377 @@
+.hide-face-titles h1 {
+    display: none;
+}
+
+.skill-span {
+    font-size: clamp(1rem, 1.8vw, 1.5rem);
+    padding: 1em 4em;
+    display: inline-block;
+    margin: 0 auto;
+    line-height: 1.2;
+}
+
+.skill-p {
+    font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+    font-family: monospace;
+    padding: 0 2em;
+    line-height: 1.2;
+}
+
+.skill-picker {
+    position: fixed;
+    left: 18%;
+    height: 100%;
+    padding: 0 75px 0 75px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 36.5vw;
+    top: 25%;
+    display: none;
+}
+
+#the-cube.face-front-showing~#front-skill-picker,
+#the-cube.face-right-showing~#right-skill-picker,
+#the-cube.face-left-showing~#left-skill-picker {
+    display: flex;
+    align-content: flex-start;
+    animation: FadeInSkillBTN 1.5s ease-in-out forwards;
+}
+
+#the-cube.face-collapsing~.skill-picker {
+    display: none;
+    align-content: flex-start;
+    animation: FadeOutSkillBTN 0.25s cubic-bezier(0, 0, 0.58, 1) forwards;
+}
+
+.skill-title {
+    position: absolute;
+    font-size: 3rem;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#the-cube.face-front-showing .front-skill-content,
+#the-cube.face-right-showing .right-skill-content,
+#the-cube.face-left-showing .left-skill-content {
+    position: absolute;
+    width: 100%;
+    height: 55vh;
+    top: 62%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: scroll;
+    padding-bottom: 8em;
+}
+
+.skill-content::-webkit-scrollbar {
+    width: 5px;
+}
+.skill-content::-webkit-scrollbar-track {
+    background: none;
+}
+.skill-content::-webkit-scrollbar-thumb {
+    background-color: rgb(128, 128, 128);
+    border-radius: 20px;
+    border: 3px solid rgb(187, 187, 187);
+}
+
+#the-cube:not(.face-front-showing):not(.face-right-showing):not(.face-left-showing) .skill-content {
+    height: 0;
+}
+
+.skill-btn {
+    background-color: rgba(255, 0, 0, 0.74);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: "Reem Kufi", sans-serif;
+    border: none;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
+}
+
+.skill-btn:hover {
+    background-color: rgb(255, 0, 0);
+    box-shadow: rgb(255, 0, 0) 0px 0px 0px 2px;
+    transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
+}
+
+.skill-btn:active {
+    background-color: rgb(255, 0, 0);
+    box-shadow: rgb(255, 0, 0) 0px 0px 0px 2px;
+    transform: scale(0.96);
+    transition: all 0.1s cubic-bezier(0, 0, 0.58, 1);
+}
+
+
+@keyframes FadeInSkillBTN {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes FadeOutSkillBTN {
+    0% {
+        display: flex;
+        opacity: 1;
+    }
+
+    100% {
+        display: none;
+        opacity: 0;
+    }
+}
+
+@keyframes FadeInSkillBTNSM {
+    0% {
+        opacity: 0;
+        bottom: -100%;
+    }
+
+    100% {
+        bottom: 0%;
+        opacity: 1;
+    }
+}
+
+@keyframes FadeOutSkillBTNSM {
+    0% {
+        display: flex;
+        opacity: 1;
+        bottom: 0%;
+    }
+
+    100% {
+        display: none;
+        opacity: 0;
+        bottom: -100%;
+    }
+}
+
+
+@media (max-width: 750px) {
+
+    .skill-picker {
+        position: fixed;
+        left: initial;
+        height: 0%;
+        padding: 0 0 60px 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 10px;
+        width: 100vw;
+        top: initial;
+        bottom: 0%;
+        display: none;
+        z-index: 1;
+    }
+
+    #the-cube.face-front-showing~#front-skill-picker,
+    #the-cube.face-right-showing~#right-skill-picker,
+    #the-cube.face-left-showing~#left-skill-picker {
+        display: flex;
+        align-content: flex-start;
+        animation: FadeInSkillBTNSM 1s ease-in-out forwards;
+    }
+
+    #the-cube.face-collapsing~.skill-picker {
+        display: none;
+        animation: FadeOutSkillBTNSM 0.5s ease-in-out forwards;
+    }
+
+    .skill-btn {
+        font-size: 0.9rem;
+        border-radius: 50%;
+        height: min(12.5vw, 10vh);
+        width: min(12.5vw, 10vh);
+        min-height: 55px;
+        min-width: 55px;
+    }
+
+    .skill-title {
+        position: absolute;
+        font-size: 2.5rem;
+        top: 22%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .skill-content {
+        position: absolute;
+        width: 100%;
+        height: 50vh;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* overflow-y: auto; */
+    }
+}
+
+@media (max-height: 1000px) and (min-width: 750px) {
+
+    .skill-picker {
+        position: fixed;
+        left: 18%;
+        height: 100%;
+        padding: 0 75px 0 75px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+        width: 36.5vw;
+        top: 15%;
+        display: none;
+        z-index: 1;
+    }
+
+    #the-cube.face-front-showing~#front-skill-picker,
+    #the-cube.face-right-showing~#right-skill-picker,
+    #the-cube.face-left-showing~#left-skill-picker {
+        display: flex;
+        align-content: flex-start;
+        animation: FadeInSkillBTN 1s ease-in-out forwards;
+    }
+
+    #the-cube.face-collapsing~.skill-picker {
+        display: none;
+        animation: FadeOutSkillBTN 0.5s ease-in-out forwards;
+    }
+}
+
+@media (max-height: 750px) {
+
+    .skill-picker {
+        position: fixed;
+        left: initial;
+        height: 0%;
+        padding: 0 0 60px 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 10px;
+        width: 100vw;
+        top: initial;
+        bottom: 0%;
+        display: none;
+        z-index: 1;
+    }
+
+    #the-cube.face-front-showing~#front-skill-picker,
+    #the-cube.face-right-showing~#right-skill-picker,
+    #the-cube.face-left-showing~#left-skill-picker {
+        display: flex;
+        align-content: flex-start;
+        animation: FadeInSkillBTNSM 1s ease-in-out forwards;
+    }
+
+    #the-cube.face-collapsing~.skill-picker {
+        display: none;
+        animation: FadeOutSkillBTNSM 0.5s ease-in-out forwards;
+    }
+
+    .skill-btn {
+        font-size: 0.9rem;
+        border-radius: 50%;
+        height: min(12.5vw, 10vh);
+        width: min(12.5vw, 10vh);
+        min-height: 55px;
+        min-width: 55px;
+    }
+
+    .skill-title {
+        position: absolute;
+        font-size: 2.5rem;
+        top: max(18%, 70px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #the-cube.face-front-showing .front-skill-content,
+    #the-cube.face-right-showing .right-skill-content,
+    #the-cube.face-left-showing .left-skill-content {
+        position: absolute;
+        width: 100%;
+        height: 55vh;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        overflow-y: auto;
+        padding-bottom: 3em;
+    }
+}
+
+@media (max-width: 500px) {
+    #the-cube.face-front-showing .front-skill-content,
+    #the-cube.face-right-showing .right-skill-content,
+    #the-cube.face-left-showing .left-skill-content {
+        position: absolute;
+        width: 100%;
+        height: 55vh;
+        top: 52%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        overflow-y: auto;
+        padding-bottom: 3em;
+    }
+    .skill-title {
+        font-size: 1.5rem;
+    }
+    .skill-picker {
+        gap: 5px;
+    }
+}
+
+@media (max-width: 375px) {
+
+    .skill-span {
+        font-size: clamp(0.9rem, 1.8vw, 1.5rem);
+        line-height: 1.1;
+    }
+
+    .skill-p {
+        font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+        line-height: 1;
+    }
+}
+
+@media (max-height: 500px) {
+    .skill-span {
+        font-size: clamp(0.9rem, 3.2vh, 1.5rem);
+        line-height: 1.1;
+    }
+
+    .skill-p {
+        font-size: clamp(0.7rem, 2.9vh, 1.2rem);
+        line-height: 1;
+    }
+    #the-cube.face-front-showing .front-skill-content,
+    #the-cube.face-right-showing .right-skill-content,
+    #the-cube.face-left-showing .left-skill-content {
+        position: absolute;
+        width: 100%;
+        height: 55vh;
+        top: 52%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        overflow-y: auto;
+        padding-bottom: 3em;
+    }
+    .skill-title {
+        font-size: 1.5rem;
+    }
+}

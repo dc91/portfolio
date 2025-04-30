@@ -1,0 +1,72 @@
+.whiteFillSVG {
+    fill: #FFFFFF;
+    stroke: #FFFFFF;
+}
+
+.pinStroke {
+    stroke: #000000;
+}
+
+.gitFillSVG {
+    fill: #ffffff;
+    stroke: #ffffff;
+    transition: all 0.3s ease-in-out;
+}
+
+.pinFillSVG {
+    transition: all 0.3s ease-in-out;
+}
+
+.mailFillSVG {
+    transition: all 0.3s ease-in-out;
+}
+
+#FooterListContainer a:hover .gitFillSVG {
+    fill: #fc4545;
+    stroke: #fc4545;
+    stroke-width: 3px;
+    transition: all 0.15s ease-in-out;
+}
+
+#FooterListContainer a:hover .pinFillSVG {
+    stroke: #fc4545;
+    stroke-width: 4px;
+    transition: all 0.15s ease-in-out;
+}
+
+#FooterListContainer a:hover .mailFillSVG {
+    fill: #fc4545;
+    stroke: #fc4545;
+    stroke-width: 3px;
+    transition: all 0.15s ease-in-out;
+}
+
+#FooterListContainer a:hover #InnerSignal {
+    animation: ColorFade 1s ease-in-out forwards infinite;
+}
+#FooterListContainer a:hover #OuterSignal {
+    animation: ColorFade 1s ease-in-out 0.5s forwards infinite;
+}
+
+
+
+@keyframes ColorFade {
+    50% {
+        fill: #fc4545;
+        stroke: #fc4545;
+        stroke-width: 3px;
+    }
+}
+
+@media (max-width: 750px) {
+    path.bubble {
+        stroke: none;
+        display: none;
+    }
+}
+@media (max-height: 750px) {
+    path.bubble {
+        stroke: none;
+        display: none;
+    }
+}
