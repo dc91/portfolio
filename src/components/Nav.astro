@@ -1,7 +1,7 @@
 ---
-import Head from "../assets/SVG/HeaderBlack.svg";
-import Line from "../assets/SVG/Line.svg";
-import Circle from "../assets/SVG/Circle.svg";
+// import Head from "../assets/SVG/HeaderBlack.svg";
+// import Line from "../assets/SVG/Line.svg";
+// import Circle from "../assets/SVG/Circle.svg";
 
 const sections = ["About", "Projects", "Skills", "Contact"];
 
@@ -9,7 +9,8 @@ const defaultSection = sections[0];
 ---
 
 <div id="NavDiv">
-    <Head class="head-svg" />
+    <img src="./src/assets/SVG/HeaderBlack.svg" alt="header image" class="head-svg">
+    <!-- <Head class="head-svg" /> -->
     <span id="Bubble-text"> Welcome To My Portfolio! </span>
     <div id="NavListDiv">
         <ul>
@@ -26,9 +27,11 @@ const defaultSection = sections[0];
                                 ? { checked: true }
                                 : {})}
                         />
-                        <Circle class="circle-svg" />
+                        <img src="./src/assets/SVG/Circle.svg" alt="circle" class="circle-svg" />
+                        {/* <Circle class="circle-svg" /> */}
                         {section}</label>
-                        <Line class="line-svg" />
+                        <img src="./src/assets/SVG/Line.svg" alt="line" class="line-svg" />
+                        {/* <Line class="line-svg" /> */}
                     </li>
                 ))
             }
