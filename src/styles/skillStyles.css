@@ -1,6 +1,22 @@
+
+.intermediateTitle {
+    position: absolute;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+#the-cube.face-front-showing #front-skill-container .intermediateTitle,
+#the-cube.face-right-showing #right-skill-container .intermediateTitle,
+#the-cube.face-left-showing #left-skill-container .intermediateTitle{
+    opacity: 1;
+    transition: all 0.2s ease-in-out 0.6s;
+}
 #front-skill-container,
 #right-skill-container,
 #left-skill-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 0%;
     height: 0%;
     transition: all 0.2s ease-in-out;
