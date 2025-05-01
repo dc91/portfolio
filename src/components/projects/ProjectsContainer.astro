@@ -2,7 +2,7 @@
 import projects from "./projectData.ts";
 import GitIcon from "../../assets/SVG/GitIcon.svg";
 import PlayIcon from "../../assets/SVG/PlayIcon.svg";
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 ---
 
 <div id="ProjectsContainer">
@@ -25,11 +25,6 @@ import { Image } from 'astro:assets';
                 </div>
                 <div class="link-container">
                     <a class="git-btn" href={project.gitURL} target="_blank">
-                        {/* <img
-                                src="./src/assets/SVG/GitIcon.svg"
-                                alt="github"
-                                class="git-icon"
-                            /> */}
                         <GitIcon class={"git-icon"} />
                         GitHub
                     </a>
@@ -39,11 +34,6 @@ import { Image } from 'astro:assets';
                         href={project.demoURL}
                         target="_blank"
                     >
-                        {/* <img
-                                src="./src/assets/SVG/PlayIcon.svg"
-                                alt="demo"
-                                class="demo-icon"
-                            /> */}
                         <PlayIcon class="demo-icon" />
                         Demo
                     </a>
@@ -54,7 +44,11 @@ import { Image } from 'astro:assets';
 </div>
 <div id="image-modal" class="hidden">
     <div class="modal-content">
-        <Image id="modal-image" src={projects[0].imageURL} alt="Enlarged Project Image" />
+        <Image
+            id="modal-image"
+            src={projects[0].imageURL}
+            alt="Enlarged Project Image"
+        />
         <button id="close-modal">Close</button>
     </div>
 </div>
@@ -579,7 +573,6 @@ import { Image } from 'astro:assets';
     @keyframes resizeIMG {
         0% {
             filter: grayscale(1) blur(4px);
-            /* transition: all 0.2s ease-in-out; */
             min-width: initial;
             width: initial;
             max-width: initial;
@@ -587,7 +580,6 @@ import { Image } from 'astro:assets';
         }
         85% {
             filter: grayscale(1) blur(4px);
-            /* transition: all 0.2s ease-in-out; */
             min-width: initial;
             width: initial;
             max-width: initial;

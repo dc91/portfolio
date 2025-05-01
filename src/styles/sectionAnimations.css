@@ -49,7 +49,7 @@
 
 #Projects,
 #Skills,
-#Contact {
+#CV {
     position: absolute;
     top: 0;
     left: 0;
@@ -86,7 +86,7 @@
 #About.section-fade-in,
 #Projects.section-fade-in,
 #Skills.section-fade-in,
-#Contact.section-fade-in {
+#CV.section-fade-in {
     opacity: 1;
     display: block;
     animation: ToggleDisplayOn 0.8s ease forwards;
@@ -95,7 +95,7 @@
 #About.section-fade-out,
 #Projects.section-fade-out,
 #Skills.section-fade-out,
-#Contact.section-fade-out {
+#CV.section-fade-out {
     animation: ToggleDisplayOff 0.8s ease forwards;
 }
 
@@ -127,11 +127,11 @@
     animation: SlideSVGUp 0.5s ease forwards;
 }
 
-#Contact.section-fade-out #fishing-svg {
+#CV.section-fade-out #fishing-svg {
     animation: SlideFishOut 0.5s ease forwards;
 }
 
-#Contact.section-fade-in #fishing-svg {
+#CV.section-fade-in #fishing-svg {
     animation: SlideFishIn 0.5s ease forwards;
 }
 
@@ -276,7 +276,7 @@
 
     #Projects,
     #Skills,
-    #Contact {
+    #CV {
         bottom: 50px;
     }
 }
@@ -312,7 +312,7 @@
     
     #Projects,
     #Skills,
-    #Contact {
+    #CV {
         bottom: 30px;
     } */
 }

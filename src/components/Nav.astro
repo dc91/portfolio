@@ -3,13 +3,12 @@ import Head from "../assets/SVG/HeaderBlack.svg";
 import Line from "../assets/SVG/Line.svg";
 import Circle from "../assets/SVG/Circle.svg";
 
-const sections = ["About", "Projects", "Skills", "Contact"];
+const sections = ["About", "Projects", "Skills", "CV"];
 
 const defaultSection = sections[0];
 ---
 
 <div id="NavDiv">
-    <!-- <img src="/assets/SVG/HeaderBlack.svg" alt="header image" class="head-svg"> -->
     <Head class="head-svg" />
     <span id="Bubble-text"> Welcome To My Portfolio! </span>
     <div id="NavListDiv">
@@ -27,10 +26,8 @@ const defaultSection = sections[0];
                                 ? { checked: true }
                                 : {})}
                         />
-                        {/* <img src="/assets/SVG/Circle.svg" alt="circle" class="circle-svg" /> */}
                         <Circle class="circle-svg" />
                         {section}</label>
-                        {/* <img src="/assets/SVG/Line.svg" alt="line" class="line-svg" /> */}
                         <Line class="line-svg" />
                     </li>
                 ))
@@ -113,13 +110,6 @@ const defaultSection = sections[0];
         width: 130px;
         transition: all 0.25s ease;
     }
-    /* #NavDiv:not(.show-menu)#NavListDiv
-        label:has(input[type="radio"]:checked)
-        + .circle-svg
-        + .line-svg {
-        width: 130px;
-        transition: all 0.25s ease;
-    } */
     .circle-svg {
         width: 10%;
         margin-left: -0.7em;
@@ -155,7 +145,6 @@ const defaultSection = sections[0];
             box-shadow: #0000003f 0px 2px 20px 10px;
             height: 250px;
             width: clamp(0px, 100%, 350px);
-            /* max-width: 350px; */
             transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
         }
         #Bubble-text {
@@ -184,7 +173,6 @@ const defaultSection = sections[0];
             display: block;
             top: 0;
             left: 0;
-            /* right: unset; */
         }
         #NavDiv.show-menu + #toggle-menu-btn {
             color: #000;
@@ -192,7 +180,6 @@ const defaultSection = sections[0];
             box-shadow: #db010165 0px 0px 8px 3px;
             border-radius: 3px;
             font-size: 1.8rem;
-            /* right: 30px; */
             left: 85px;
             top: 200px;
             font-size: 1.6rem;
@@ -247,7 +234,7 @@ const defaultSection = sections[0];
         About: "Welcome To My Portfolio!",
         Projects: "Check Out My Projects!",
         Skills: "Look At These Skills!",
-        Contact: "Wanna Talk About It?",
+        CV: "Wanna Talk About It?",
     };
 
     const radios = document.querySelectorAll('input[name="where-to"]');
