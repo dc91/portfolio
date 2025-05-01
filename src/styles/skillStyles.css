@@ -1,15 +1,22 @@
 
 .intermediateTitle {
+    font-size: 2rem;
     position: absolute;
     text-align: center;
     opacity: 0;
     transition: all 0.2s ease-in-out;
 }
-#the-cube.face-front-showing #front-skill-container .intermediateTitle,
-#the-cube.face-right-showing #right-skill-container .intermediateTitle,
-#the-cube.face-left-showing #left-skill-container .intermediateTitle{
+.face-front-showing #front-skill-container .intermediateTitle,
+.face-right-showing #right-skill-container .intermediateTitle,
+.face-left-showing #left-skill-container .intermediateTitle{
     opacity: 1;
     transition: all 0.2s ease-in-out 0.6s;
+}
+.hide-inter-titles #front-skill-container .intermediateTitle,
+.hide-inter-titles #right-skill-container .intermediateTitle,
+.hide-inter-titles #left-skill-container .intermediateTitle{
+    opacity: 0;
+    transition: all 0s ease-in-out 0s;
 }
 #front-skill-container,
 #right-skill-container,

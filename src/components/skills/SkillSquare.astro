@@ -8,7 +8,7 @@ import skillData from "./skillData.ts";
             <section id="face-front" class="face">
                 <h1>Frontend Skills</h1>
                 <article id="front-skill-container">
-                    <h1 class="intermediateTitle">Click a Skill</h1>
+                    <h3 class="intermediateTitle">Click a Skill</h3>
                     <h2 id="front-skill-title" class="skill-title"></h2>
                     <div id="front-skill-content" class="skill-content front-skill-content"></div>
                 </article>
@@ -16,7 +16,7 @@ import skillData from "./skillData.ts";
             <section id="face-right" class="face">
                 <h1>Backend Skills</h1>
                 <article id="right-skill-container">
-                    <h1 class="intermediateTitle">Click a Skill</h1>
+                    <h3 class="intermediateTitle">Click a Skill</h3>
                     <h2 id="right-skill-title" class="skill-title"></h2>
                     <div id="right-skill-content" class="skill-content right-skill-content"></div>
                 </article>
@@ -24,7 +24,7 @@ import skillData from "./skillData.ts";
             <section id="face-left" class="face">
                 <h1>Other Skills</h1>
                 <article id="left-skill-container">
-                    <h1 class="intermediateTitle">Click a Skill</h1>
+                    <h3 class="intermediateTitle">Click a Skill</h3>
                     <h2 id="left-skill-title" class="skill-title"></h2>
                     <div id="left-skill-content" class="skill-content left-skill-content"></div>
                 </article>
@@ -94,7 +94,7 @@ import skillData from "./skillData.ts";
                 (skill) => skill.skillName === skillName,
             );
             faces.forEach((face) => {
-                face.classList.add("hide-face-titles");
+                face.classList.add("hide-inter-titles");
             });
             if (selectedSkill.skillBranch === "Frontend") {
                 frontSkillTitle.innerText = selectedSkill.skillName;
@@ -121,6 +121,7 @@ import skillData from "./skillData.ts";
         faces.forEach((face) => {
             face.classList.remove("paused-breathing");
             face.classList.remove("hide-face-titles");
+            face.classList.remove("hide-inter-titles");
         });
         setTimeout(() => {
             cube.classList.remove("face-collapsing");
@@ -143,6 +144,7 @@ import skillData from "./skillData.ts";
             cube.classList.remove("face-front-showing");
             cube.classList.remove("face-right-showing");
             cube.classList.remove("face-left-showing");
+            
             frontSkillTitle.innerText = "";
             frontSkillContent.innerHTML = "";
             rightSkillTitle.innerText = "";
@@ -152,6 +154,7 @@ import skillData from "./skillData.ts";
             faces.forEach((face) => {
                 face.classList.remove("paused-breathing");
                 face.classList.remove("hide-face-titles");
+                face.classList.remove("hide-inter-titles");
             });
         }, 500);
     });
