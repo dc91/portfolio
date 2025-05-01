@@ -1,7 +1,7 @@
 ---
 import projects from "./projectData.ts";
-// import GitIcon from "../../assets/SVG/GitIcon.svg";
-// import PlayIcon from "../../assets/SVG/PlayIcon.svg";
+import GitIcon from "../../assets/SVG/GitIcon.svg";
+import PlayIcon from "../../assets/SVG/PlayIcon.svg";
 ---
 
 <div id="ProjectsContainer">
@@ -24,12 +24,12 @@ import projects from "./projectData.ts";
                 </div>
                 <div class="link-container">
                     <a class="git-btn" href={project.gitURL} target="_blank">
-                        <img
+                        {/* <img
                                 src="./src/assets/SVG/GitIcon.svg"
                                 alt="github"
                                 class="git-icon"
-                            />
-                        {/* <GitIcon class={"git-icon"} /> */}
+                            /> */}
+                        <GitIcon class={"git-icon"} />
                         GitHub
                     </a>
                     <button class="close-btn">Close</button>
@@ -38,12 +38,12 @@ import projects from "./projectData.ts";
                         href={project.demoURL}
                         target="_blank"
                     >
-                        <img
+                        {/* <img
                                 src="./src/assets/SVG/PlayIcon.svg"
                                 alt="demo"
                                 class="demo-icon"
-                            />
-                        {/* <PlayIcon class="demo-icon" /> */}
+                            /> */}
+                        <PlayIcon class="demo-icon" />
                         Demo
                     </a>
                 </div>

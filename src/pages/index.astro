@@ -5,10 +5,10 @@ import ProjectsContainer from "../components/projects/ProjectsContainer.astro";
 import SkillSquare from "../components/skills/SkillSquare.astro";
 import CV from "../components/CV.astro";
 
-// import Jumping from "../assets/SVG/JumpingBlack.svg";
-// import Deer from "../assets/SVG/Deer.svg";
-// import Deer2 from "../assets/SVG/Deer2.svg";
-// import Fishing from "../assets/SVG/Fishing.svg";
+import Jumping from "../assets/SVG/JumpingBlack.svg";
+import Deer from "../assets/SVG/Deer.svg";
+import Deer2 from "../assets/SVG/Deer2.svg";
+import Fishing from "../assets/SVG/Fishing.svg";
 ---
 
 <Layout>
@@ -16,29 +16,29 @@ import CV from "../components/CV.astro";
 		<div class="SectionOverlay">
 			<Welcome id="WelcomeComponent" />
 		</div>
-		<img src="./src/assets/SVG/JumpingBlack.svg" alt="jumping man" id="jumping-svg" />
-		<!-- <Jumping id={"jumping-svg"} /> -->
+		<!-- <img src="./src/assets/SVG/JumpingBlack.svg" alt="jumping man" id="jumping-svg" /> -->
+		<Jumping id={"jumping-svg"} />
 	</section>
 	<section id="Projects">
 		<div class="SectionOverlayProjects">
 			<ProjectsContainer />
 		</div>
-		<img src="./src/assets/SVG/Deer.svg" alt="deer" id="deer-svg" />
-		<!-- <Deer id={"deer-svg"} /> -->
+		<!-- <img src="./src/assets/SVG/Deer.svg" alt="deer" id="deer-svg" /> -->
+		<Deer id={"deer-svg"} />
 	</section>
 	<section id="Skills">
 		<div class="SectionOverlaySkills">
 			<SkillSquare />
 		</div>
-		<img src="./src/assets/SVG/Deer2.svg" alt="deer" id="dder-2-svg" />
-		<!-- <Deer2 id={"deer-2-svg"} /> -->
+		<!-- <img src="./src/assets/SVG/Deer2.svg" alt="deer" id="dder-2-svg" /> -->
+		<Deer2 id={"deer-2-svg"} />
 	</section>
 	<section id="Contact">
 		<div class="SectionOverlay">
 			<CV />
 		</div>
-		<img src="./src/assets/SVG/Fishing.svg" alt="fishing" id="fishing-svg" />
-		<!-- <Fishing id={"fishing-svg"} /> -->
+		<!-- <img src="./src/assets/SVG/Fishing.svg" alt="fishing" id="fishing-svg" /> -->
+		<Fishing id={"fishing-svg"} />
 	</section>
 </Layout>
 
