@@ -343,7 +343,7 @@
         padding-bottom: 3em;
     }
     .skill-title {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
     .skill-picker {
         gap: 5px;
@@ -353,25 +353,27 @@
 @media (max-width: 375px) {
 
     .skill-span {
-        font-size: clamp(0.9rem, 1.8vw, 1.5rem);
+        font-size: clamp(0.8rem, 1.8vw, 1.5rem);
         line-height: 1.1;
     }
 
     .skill-p {
-        font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+        font-size: clamp(0.7rem, 1.5vw, 1.2rem);
         line-height: 1;
     }
 }
 
 @media (max-height: 500px) {
     .skill-span {
-        font-size: clamp(0.9rem, 3.2vh, 1.5rem);
+        font-size: clamp(0.8rem, 3.2vh, 1.5rem);
         line-height: 1.1;
+        max-inline-size: 90%;
     }
 
     .skill-p {
         font-size: clamp(0.7rem, 2.9vh, 1.2rem);
         line-height: 1;
+        max-inline-size: 90%;
     }
     #the-cube.face-front-showing .front-skill-content,
     #the-cube.face-right-showing .right-skill-content,
@@ -386,6 +388,7 @@
         padding-bottom: 3em;
     }
     .skill-title {
-        font-size: 1.5rem;
+        font-size: 1rem;
+        opacity: 0;
     }
 }
