@@ -2,6 +2,7 @@
 import projects from "./projectData.ts";
 import GitIcon from "../../assets/SVG/GitIcon.svg";
 import PlayIcon from "../../assets/SVG/PlayIcon.svg";
+import { Image } from 'astro:assets';
 ---
 
 <div id="ProjectsContainer">
@@ -15,7 +16,7 @@ import PlayIcon from "../../assets/SVG/PlayIcon.svg";
                         set:html={project.description}
                     />
                     <div class="card-img-overlay">
-                        <img
+                        <Image
                             class="card-img"
                             src={project.imageURL}
                             alt={project.name}
@@ -53,7 +54,7 @@ import PlayIcon from "../../assets/SVG/PlayIcon.svg";
 </div>
 <div id="image-modal" class="hidden">
     <div class="modal-content">
-        <img id="modal-image" src="" alt="Enlarged Project Image" />
+        <Image id="modal-image" src={projects[0].imageURL} alt="Enlarged Project Image" />
         <button id="close-modal">Close</button>
     </div>
 </div>
@@ -86,7 +87,7 @@ import PlayIcon from "../../assets/SVG/PlayIcon.svg";
         max-height: 90%;
     }
 
-    .modal-content img {
+    .modal-content Image {
         width: clamp(250px, min(75vw, 80vh), 800px);
         height: auto;
         border-radius: 10px;
