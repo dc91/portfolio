@@ -293,7 +293,7 @@ import { Image } from 'astro:assets';
         opacity: 1;
     }
     .project-card.active .card-img {
-        animation: resizeIMG 0.5s ease-in-out 0.1s forwards;
+        animation: resizeIMG 0.5s ease-in-out 0s forwards;
     }
     .project-card.active .link-container {
         animation: blinkLinks 0.5s ease forwards;
@@ -425,6 +425,7 @@ import { Image } from 'astro:assets';
             scale: 1.05;
             opacity: 1;
             transform: translate(0, -2%);
+            padding: 0.75em;
         }
         40% {
             scale: 1;
@@ -576,10 +577,21 @@ import { Image } from 'astro:assets';
     }
 
     @keyframes resizeIMG {
+        0% {
+            filter: grayscale(1) blur(4px);
+            /* transition: all 0.2s ease-in-out; */
+            min-width: initial;
+            width: initial;
+            max-width: initial;
+            height: 275px;
+        }
         85% {
             filter: grayscale(1) blur(4px);
-            transition: all 0.2s ease-in-out;
-            height: 275px;
+            /* transition: all 0.2s ease-in-out; */
+            min-width: initial;
+            width: initial;
+            max-width: initial;
+            height: 300px;
         }
         100% {
             height: auto;
