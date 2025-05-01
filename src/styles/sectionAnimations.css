@@ -96,6 +96,7 @@
 #Projects.section-fade-out,
 #Skills.section-fade-out,
 #CV.section-fade-out {
+    display: none;
     animation: ToggleDisplayOff 0.8s ease forwards;
 }
 
