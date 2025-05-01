@@ -4,6 +4,8 @@ import PinIcon from "../assets/SVG/PinIcon.svg";
 import EmailIcon from "../assets/SVG/EmailIcon.svg";
 import GitIcon from "../assets/SVG/GitIcon.svg";
 import CVCircle from "./CVCircle.astro";
+import { Image } from "astro:assets";
+import profilePic from "../assets/PNG/CVBild.png";
 ---
 
 <div class="cv-container">
@@ -162,9 +164,9 @@ import CVCircle from "./CVCircle.astro";
             </section>
         </div>
         <aside class="cv-right-aside">
-            <img
+            <Image
                 class="profile-pic"
-                src="./src/assets/PNG/CVBild.png"
+                src={profilePic}
                 alt="profile-pic"
             />
             <section class="cv-contact-section">
