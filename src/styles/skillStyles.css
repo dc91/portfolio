@@ -28,8 +28,15 @@
     height: 100%;
     transition: all 0.2s ease-in-out 0.5s;
 }
-.hide-face-titles h1 {
-    display: none;
+.hide-face-titles h1:not(.intermediateTitle) {
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+h1:not(.intermediateTitle),
+h1:not(.intermediateTitle),
+h1:not(.intermediateTitle) {
+    opacity: 1;
+    transition: all 0.5s ease-in-out 0.2s;
 }
 
 .skill-span {
