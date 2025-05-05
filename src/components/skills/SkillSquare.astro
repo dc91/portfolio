@@ -10,7 +10,11 @@ import skillData from "./skillData.ts";
                 <article id="front-skill-container">
                     <h3 class="intermediateTitle">Click a Skill</h3>
                     <h2 id="front-skill-title" class="skill-title"></h2>
-                    <div id="front-skill-content" class="skill-content front-skill-content"></div>
+                    <div
+                        id="front-skill-content"
+                        class="skill-content front-skill-content"
+                    >
+                    </div>
                 </article>
             </section>
             <section id="face-right" class="face">
@@ -18,7 +22,11 @@ import skillData from "./skillData.ts";
                 <article id="right-skill-container">
                     <h3 class="intermediateTitle">Click a Skill</h3>
                     <h2 id="right-skill-title" class="skill-title"></h2>
-                    <div id="right-skill-content" class="skill-content right-skill-content"></div>
+                    <div
+                        id="right-skill-content"
+                        class="skill-content right-skill-content"
+                    >
+                    </div>
                 </article>
             </section>
             <section id="face-left" class="face">
@@ -26,7 +34,11 @@ import skillData from "./skillData.ts";
                 <article id="left-skill-container">
                     <h3 class="intermediateTitle">Click a Skill</h3>
                     <h2 id="left-skill-title" class="skill-title"></h2>
-                    <div id="left-skill-content" class="skill-content left-skill-content"></div>
+                    <div
+                        id="left-skill-content"
+                        class="skill-content left-skill-content"
+                    >
+                    </div>
                 </article>
             </section>
         </div>
@@ -70,9 +82,7 @@ import skillData from "./skillData.ts";
     </div>
 </div>
 
-<style>
-
-</style>
+<style></style>
 
 <script type="module" define:vars={{ skillData }}>
     const cube = document.getElementById("the-cube");
@@ -97,12 +107,24 @@ import skillData from "./skillData.ts";
                 face.classList.add("hide-inter-titles");
             });
             if (selectedSkill.skillBranch === "Frontend") {
+                frontSkillContent.scrollTo({
+                    top: 0,
+                    behavior: "smooth",
+                });
                 frontSkillTitle.innerText = selectedSkill.skillName;
                 frontSkillContent.innerHTML = selectedSkill.skillContent;
             } else if (selectedSkill.skillBranch === "Backend") {
+                rightSkillContent.scrollTo({
+                    top: 0,
+                    behavior: "smooth",
+                });
                 rightSkillTitle.innerText = selectedSkill.skillName;
                 rightSkillContent.innerHTML = selectedSkill.skillContent;
             } else if (selectedSkill.skillBranch === "Other") {
+                leftSkillContent.scrollTo({
+                    top: 0,
+                    behavior: "smooth",
+                });
                 leftSkillTitle.innerText = selectedSkill.skillName;
                 leftSkillContent.innerHTML = selectedSkill.skillContent;
             }
@@ -144,7 +166,7 @@ import skillData from "./skillData.ts";
             cube.classList.remove("face-front-showing");
             cube.classList.remove("face-right-showing");
             cube.classList.remove("face-left-showing");
-            
+
             frontSkillTitle.innerText = "";
             frontSkillContent.innerHTML = "";
             rightSkillTitle.innerText = "";

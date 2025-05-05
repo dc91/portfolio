@@ -184,6 +184,10 @@ h1:not(.intermediateTitle) {
         display: flex;
         opacity: 1;
     }
+    50% {
+        display: none;
+        opacity: 0;
+    }
 
     100% {
         display: none;
@@ -248,7 +252,7 @@ h1:not(.intermediateTitle) {
 
     #the-cube.face-collapsing~.skill-picker {
         display: none;
-        animation: FadeOutSkillBTNSM 0.5s ease-in-out forwards;
+        animation: FadeOutSkillBTNSM 0.2s ease-in-out forwards;
     }
 
     .skill-btn {
