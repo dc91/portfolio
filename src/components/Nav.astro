@@ -17,17 +17,18 @@ const defaultSection = sections[0];
                 sections.map((section) => (
                     <li>
                         <label for={section + "_radio"}>
-                        <input
-                            type="radio"
-                            id={section + "_radio"}
-                            name="where-to"
-                            value={section}
-                            {...(section === defaultSection
-                                ? { checked: true }
-                                : {})}
-                        />
-                        <Circle class="circle-svg" />
-                        {section}</label>
+                            <input
+                                type="radio"
+                                id={section + "_radio"}
+                                name="where-to"
+                                value={section}
+                                {...(section === defaultSection
+                                    ? { checked: true }
+                                    : {})}
+                            />
+                            <Circle class="circle-svg" />
+                            {section}
+                        </label>
                         <Line class="line-svg" />
                     </li>
                 ))
@@ -98,7 +99,7 @@ const defaultSection = sections[0];
     #NavListDiv label:has(input[type="radio"]:checked) {
         color: #f00;
         font-weight: bold;
-        cursor: default;
+        /* cursor: default; */
     }
     .head-svg {
         width: 330px;
@@ -223,8 +224,7 @@ const defaultSection = sections[0];
             box-shadow: #0000003f 0px 2px 10px 1px;
             height: 35px;
             width: 100%;
-            transition:
-                all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
             pointer-events: initial;
         }
     }
@@ -242,6 +242,17 @@ const defaultSection = sections[0];
     const menuBTN = document.getElementById("toggle-menu-btn");
     const navDiv = document.getElementById("NavDiv");
     const headSVG = document.querySelector(".head-svg");
+    const aboutAndCvCont = document.querySelectorAll(".SectionOverlay");
+    const projectCont = document.querySelector(".SectionOverlayProjects");
+    const cards = document.querySelectorAll(".project-card");
+    const cube = document.getElementById("the-cube");
+    const faces = document.querySelectorAll(".face");
+    const frontSkillTitle = document.getElementById("front-skill-title");
+    const frontSkillContent = document.getElementById("front-skill-content");
+    const rightSkillTitle = document.getElementById("right-skill-title");
+    const rightSkillContent = document.getElementById("right-skill-content");
+    const leftSkillTitle = document.getElementById("left-skill-title");
+    const leftSkillContent = document.getElementById("left-skill-content");
 
     menuBTN.addEventListener("click", () => {
         menuBTN.textContent = "";
@@ -261,14 +272,67 @@ const defaultSection = sections[0];
             bubble.classList.remove("simple-fade");
         }, 250);
     }
+    function resetAboutAndCv() {
+        aboutAndCvCont.forEach((c) => {
+            c.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            });
+        });
+    }
+    function resetProjects() {
+        cards.forEach((c) => {
+            c.classList.remove("vanish", "active");
+        });
+        projectCont.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    }
+    function resetSkills() {
+        cube.classList.remove("face-front-showing");
+        cube.classList.remove("face-right-showing");
+        cube.classList.remove("face-left-showing");
+
+        frontSkillTitle.innerText = "";
+        frontSkillContent.innerHTML = "";
+        rightSkillTitle.innerText = "";
+        rightSkillContent.innerHTML = "";
+        leftSkillTitle.innerText = "";
+        leftSkillContent.innerHTML = "";
+        faces.forEach((face) => {
+            face.classList.remove("paused-breathing");
+            face.classList.remove("hide-face-titles");
+            face.classList.remove("hide-inter-titles");
+        });
+    }
+
+    let lastSelectedValue = document.querySelector(
+        "input[name='where-to']:checked",
+    )?.value;
 
     radios.forEach((radio) => {
-        radio.addEventListener("change", () => {
-            const value = radio.value;
-            notifyChange(value);
+        radio.addEventListener("click", (event) => {
+            const clickedValue = event.target.value;
+            if (clickedValue === lastSelectedValue) {
+                if (clickedValue === "About" || clickedValue === "CV") {
+                    resetAboutAndCv();
+                } else if (clickedValue === "Projects") {
+                    resetProjects();
+                } else if (clickedValue === "Skills") {
+                    resetSkills();
+                }
+            } else {
+                lastSelectedValue = clickedValue;
+            }
+        });
+
+        radio.addEventListener("change", (event) => {
+            const newValue = event.target.value;
+            notifyChange(newValue);
             applyFade();
             setTimeout(() => {
-                bubble.textContent = messages[value];
+                bubble.textContent = messages[newValue];
             }, 250);
         });
     });

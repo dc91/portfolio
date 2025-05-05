@@ -442,23 +442,23 @@ import { Image } from "astro:assets";
             opacity: 0;
             width: 60vw;
             max-width: 900px;
-            height: 55vh;
-            min-height: 800px;
+            height: 70vh;
+            /* min-height: 800px; */
         }
         75% {
             opacity: 1;
             max-width: 900px;
             width: 60vw;
-            height: 55vh;
-            min-height: 800px;
+            height: 70vh;
+            /* min-height: 800px; */
         }
         100% {
             opacity: 1;
             max-width: 900px;
             width: 60vw;
-            height: 55vh;
+            height: 70vh;
             padding: 1.75em;
-            min-height: 800px;
+            /* min-height: 800px; */
         }
     }
     @keyframes moveTitle {
@@ -659,6 +659,7 @@ import { Image } from "astro:assets";
     const modalImage = document.getElementById("modal-image");
     const closeModal = document.getElementById("close-modal");
     const navDiv = document.getElementById("NavDiv");
+    const projectOverlay = document.querySelector(".SectionOverlayProjects");
 
     document.querySelectorAll(".card-img").forEach((img) => {
         img.addEventListener("click", (e) => {
@@ -718,11 +719,12 @@ import { Image } from "astro:assets";
     });
 
     document.addEventListener("sectionChanged", (event) => {
-        const selectedSection = event.detail;
-        if (selectedSection !== "Projects") {
-            setTimeout(() => {
-                removeClasses();
-            }, 500);
-        }
+        projectOverlay.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+        setTimeout(() => {
+            removeClasses();
+        }, 500);
     });
 </script>

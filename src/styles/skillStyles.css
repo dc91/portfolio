@@ -346,10 +346,10 @@ h1:not(.intermediateTitle) {
     .skill-btn {
         font-size: 0.9rem;
         border-radius: 50%;
-        height: min(12.5vw, 10vh);
-        width: min(12.5vw, 10vh);
-        min-height: 55px;
-        min-width: 55px;
+        height: min(12.5vw, 10.5vh);
+        width: min(12.5vw, 10.5vh);
+        min-height: 60px;
+        min-width: 60px;
     }
 
     .skill-title {

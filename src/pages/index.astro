@@ -166,5 +166,12 @@ import Fishing from "../assets/SVG/Fishing.svg";
 				document.getElementById(x).classList.remove("section-fade-in");
 			}
 		});
+		const aboutAndCvCont = document.querySelectorAll(".SectionOverlay");
+		aboutAndCvCont.forEach((aboutAndCvCont) => {
+			aboutAndCvCont.scrollTo({
+				top: 0,
+				behavior: "smooth",
+			});
+		});
 	});
 </script>
