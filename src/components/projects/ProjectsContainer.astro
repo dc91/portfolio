@@ -9,6 +9,9 @@ import { Image } from "astro:assets";
     {
         projects.map((project) => (
             <article class="project-card">
+                <span class="project-card-go-back">
+                    &larr; <span>Go back</span>
+                </span>
                 <div class="project-card-background">
                     <h1 class="card-title">{project.name}</h1>
                     <div
@@ -53,6 +56,17 @@ import { Image } from "astro:assets";
     </div>
 </div>
 <style>
+    .project-card-go-back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        opacity: 0;
+        pointer-events: none;
+    }
+    .project-card-go-back span {
+        font-size: 0.8rem;
+    }
     .hide-demo-bt {
         opacity: 0;
         pointer-events: none;
@@ -645,7 +659,21 @@ import { Image } from "astro:assets";
             opacity: 1;
         }
         .project-card.active .card-img {
-            animation: resizeIMG 0.5s ease-in-out 0.1s forwards;
+            animation: resizeIMG 0.5s ease-in-out 0s forwards;
+        }
+        .project-card.active .project-card-go-back {
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding-left: 0.5em;
+            top: 0;
+            left: 0;
+            opacity: 1;
+            transition: opacity 1s ease-in-out 0.5s;
+            cursor: pointer;
+            pointer-events: initial;
+        }
+        .project-card.active .project-card-go-back span {
+            font-size: 0.8rem;
         }
     }
 </style>
@@ -654,6 +682,8 @@ import { Image } from "astro:assets";
     const closeBtns = document.querySelectorAll(".close-btn");
     const cards = document.querySelectorAll(".project-card");
     const imgOverlays = document.querySelectorAll(".card-img-overlay");
+
+    const goBack = document.querySelectorAll(".project-card-go-back");
 
     const modal = document.getElementById("image-modal");
     const modalImage = document.getElementById("modal-image");
@@ -707,6 +737,11 @@ import { Image } from "astro:assets";
         });
     });
 
+    goBack.forEach((g) => {
+        g.addEventListener("click", () => {
+            removeClasses();
+        });
+    });
     closeBtns.forEach((closeBtn) => {
         closeBtn.addEventListener("click", () => {
             removeClasses();

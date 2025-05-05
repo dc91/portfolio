@@ -164,37 +164,42 @@ import profilePic from "../assets/PNG/CVBild.png";
             </section>
         </div>
         <aside class="cv-right-aside">
-            <Image
-                class="profile-pic"
-                src={profilePic}
-                alt="profile-pic"
-            />
+            <Image class="profile-pic" src={profilePic} alt="profile-pic" />
             <section class="cv-contact-section">
                 <h2 class="cv-contact-title cv-subtitle">Contact</h2>
                 <ul class="cv-contact-list">
                     <li>
-                        <span>
-                            <PinIcon class={"cv-icons"} />
-                            Malmö, Sweden
-                        </span>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Malm%C3%B6%2C+Sweden"
+                        target="_blank">
+                            <span>
+                                <PinIcon class={"cv-icons"} />
+                                Malmö, Sweden
+                            </span>
+                        </a>
                     </li>
                     <li>
-                        <span>
-                            <PhoneIcon class={"cv-icons"} />
-                            076-7039336
-                        </span>
+                        <a href="tel:0767039336">
+                            <span>
+                                <PhoneIcon class={"cv-icons"} />
+                                076-7039336
+                            </span>
+                        </a>
                     </li>
                     <li>
-                        <span>
-                            <EmailIcon class={"cv-icons"} />
-                            dc91_@hotmail.com
-                        </span>
+                        <a href="mailto:dc91_@hotmail.com">
+                            <span>
+                                <EmailIcon class={"cv-icons"} />
+                                dc91_@hotmail.com
+                            </span>
+                        </a>
                     </li>
                     <li>
-                        <span>
-                            <GitIcon class={"cv-icons"} />
-                            dc91
-                        </span>
+                        <a  href="https://github.com/dc91" target="_blank">
+                            <span>
+                                <GitIcon class={"cv-icons"} />
+                                dc91
+                            </span>
+                        </a>
                     </li>
                 </ul>
             </section>
@@ -256,6 +261,14 @@ import profilePic from "../assets/PNG/CVBild.png";
     /* ------------------------ */
     /* ----------Main---------- */
     /* ------------------------ */
+    a {
+        text-decoration: none;
+        color: #888;
+    }
+    a:hover {
+        text-decoration: none;
+        color: #000;
+    }
     .profile-pic {
         width: 200px;
         height: auto;

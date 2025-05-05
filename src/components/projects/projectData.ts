@@ -60,8 +60,8 @@ const projects = [
         name: 'This site',
         description: ProjectThisSite,
         imageURL: PortfolioSVG,
-        gitURL: 'https://github.com/dc91/AstroFolio',
-        demoURL: 'https://dc91.github.io/AstroFolio/'
+        gitURL: 'https://github.com/dc91/portfolio',
+        demoURL: 'https://dilansportfolio.netlify.app/'
     }
 ];
 
