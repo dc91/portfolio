@@ -569,19 +569,19 @@ import { Image } from "astro:assets";
             opacity: 0;
             width: 98vw;
             min-height: 730px;
-            height: 74vh;
+            height: 100%;
         }
         75% {
             opacity: 1;
             width: 98vw;
             min-height: 730px;
-            height: 74vh;
+            height: 100%;
         }
         100% {
             opacity: 1;
             width: 98vw;
             min-height: 730px;
-            height: 74vh;
+            height: 100%;
         }
     }
 
@@ -645,8 +645,13 @@ import { Image } from "astro:assets";
             padding-bottom: 1.5em;
         }
         .project-card.active .project-card-background {
-            margin-bottom: 0;
+            /* margin-bottom: 0; */
             transition: all 0.2s ease-in-out 0.5s;
+            min-height: max-content;
+            margin-bottom: 2em;
+        }
+        .project-card.active .link-container {
+            margin-bottom: 1.5em;
         }
         .project-card.active .card-img-overlay {
             animation: MoveIMGOverlay 0.5s ease-in-out 0s forwards;
@@ -665,8 +670,8 @@ import { Image } from "astro:assets";
             font-size: 1.5rem;
             font-weight: bold;
             padding-left: 0.5em;
-            top: 0;
-            left: 0;
+            top: 10px;
+            left: 5px;
             opacity: 1;
             transition: opacity 1s ease-in-out 0.5s;
             cursor: pointer;
@@ -723,7 +728,10 @@ import { Image } from "astro:assets";
     imgOverlays.forEach((overlay) => {
         overlay.addEventListener("click", (e) => {
             e.stopPropagation();
-
+            projectOverlay.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            });
             const card = overlay.closest(".project-card");
             if (card) {
                 cards.forEach((c) => {
