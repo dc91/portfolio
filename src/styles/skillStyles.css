@@ -4,6 +4,7 @@
     position: absolute;
     text-align: center;
     opacity: 0;
+    z-index: -1;
     transition: all 0.2s ease-in-out;
 }
 .face-front-showing #front-skill-container .intermediateTitle,
@@ -47,7 +48,7 @@ h1:not(.intermediateTitle) {
 }
 
 .skill-span {
-    font-size: clamp(1rem, 1.8vw, 1.5rem);
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
     padding: 1em 4em;
     display: inline-block;
     margin: 0 auto;
@@ -55,7 +56,7 @@ h1:not(.intermediateTitle) {
 }
 
 .skill-p {
-    font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
     font-family: monospace;
     padding: 0 2em;
     line-height: 1.2;
@@ -73,6 +74,7 @@ h1:not(.intermediateTitle) {
     width: 36.5vw;
     top: 25%;
     display: none;
+    pointer-events: none;
 }
 
 #the-cube.face-front-showing~#front-skill-picker,
@@ -106,20 +108,32 @@ h1:not(.intermediateTitle) {
     top: 62%;
     left: 50%;
     transform: translate(-50%, -50%);
-    overflow-y: scroll;
-    padding-bottom: 8em;
+    overflow-y: auto;
+    padding-bottom: 15em;
 }
 
-.skill-content::-webkit-scrollbar {
+/* #front-skill-content {
+    z-index: 150;
+}
+::-webkit-scrollbar {
+    width: 15px;
+    height: 10px;
+    background-color: #aaa;
+}
+::-webkit-scrollbar-thumb {
+    background: #000;
+  } */
+
+::-webkit-scrollbar {
     width: 5px;
 }
-.skill-content::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     background: none;
 }
-.skill-content::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background-color: rgb(128, 128, 128);
-    border-radius: 20px;
-    border: 3px solid rgb(187, 187, 187);
+        border-radius: 20px;
+        border: 3px solid rgb(187, 187, 187);
 }
 
 #the-cube:not(.face-front-showing):not(.face-right-showing):not(.face-left-showing) .skill-content {
@@ -137,6 +151,7 @@ h1:not(.intermediateTitle) {
     height: 100px;
     width: 100px;
     cursor: pointer;
+    pointer-events: initial;
     transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
 }
 
@@ -220,7 +235,7 @@ h1:not(.intermediateTitle) {
         top: initial;
         bottom: 0%;
         display: none;
-        z-index: 1;
+        /* z-index: 1; */
     }
 
     #the-cube.face-front-showing~#front-skill-picker,
@@ -278,7 +293,7 @@ h1:not(.intermediateTitle) {
         width: 36.5vw;
         top: 15%;
         display: none;
-        z-index: 1;
+        /* z-index: 1; */
     }
 
     #the-cube.face-front-showing~#front-skill-picker,
@@ -312,7 +327,7 @@ h1:not(.intermediateTitle) {
         top: initial;
         bottom: 0%;
         display: none;
-        z-index: 1;
+        /* z-index: 1; */
     }
 
     #the-cube.face-front-showing~#front-skill-picker,

@@ -6,7 +6,7 @@
     color: #fff;
     font-size: 1.4rem;
     cursor: pointer;
-    z-index: -1;
+    /* z-index: -1; */
     opacity: 0;
     pointer-events: none;
 }
@@ -29,7 +29,7 @@
 }
 
 #the-cube {
-    z-index: 1;
+    /* z-index: 1; */
     position: relative;
     margin: 0 auto;
     width: var(--cubeWidth);
@@ -144,8 +144,8 @@
     opacity: 1;
     transition: opacity 0.5s ease 0.9s, color 0.5s ease;
     /* transition-delay: 0.9s; */
-    pointer-events: all;
-    z-index: 20;
+    pointer-events: initial;
+    /* z-index: 20; */
 }
 .face-front-showing+.reset-cube-btn:hover,
 .face-right-showing+.reset-cube-btn:hover,
@@ -209,7 +209,7 @@
         font-size: clamp(1rem, calc(min(5vw,5vh)), 5.5vw);
     }
     #the-cube {
-        z-index: 1;
+        /* z-index: 1; */
         position: relative;
         margin: 0 auto;
         width: var(--cubeWidth2);
