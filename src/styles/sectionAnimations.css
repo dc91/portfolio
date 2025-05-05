@@ -25,6 +25,14 @@
     bottom: 70px;
     left: 0;
     pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out 0.5s;
+}
+.SectionOverlaySkills:has(#the-cube.face-front-showing) + #deer-2-svg,
+.SectionOverlaySkills:has(#the-cube.face-right-showing) + #deer-2-svg,
+.SectionOverlaySkills:has(#the-cube.face-left-showing) + #deer-2-svg {
+    opacity: 0.3;
+    transition: all 0.5s ease-in-out 0.5s;
 }
 
 #fishing-svg {
