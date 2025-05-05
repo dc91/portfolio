@@ -304,9 +304,7 @@ import { Image } from "astro:assets";
     .project-card.active .card-img {
         animation: resizeIMG 0.5s ease-in-out 0s forwards;
     }
-    .project-card.active .link-container {
-        animation: blinkLinks 0.5s ease forwards;
-    }
+
     .project-card.active .link-container button {
         animation: showCloseButton 0.5s ease forwards;
         display: inline-block;
@@ -380,21 +378,6 @@ import { Image } from "astro:assets";
     /* -------------- */
     /*   Animations   */
     /* -------------- */
-
-    @keyframes blinkLinks {
-        0% {
-            opacity: 1;
-        }
-        25% {
-            opacity: 0;
-        }
-        95% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
 
     @keyframes showCloseButton {
         0% {
