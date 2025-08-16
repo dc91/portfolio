@@ -1,3 +1,4 @@
+import ProjectRAG from './Project-RAG.html?raw';
 import ProjectTodoly from './Project-TODOLY.html?raw';
 import ProjectCSVTool from './Project-CSVTOOL.html?raw';
 import ProjectMovieStore from './Project-MOVIE.html?raw';
@@ -6,6 +7,7 @@ import ProjectAssetTracker from './Project-ASSET.html?raw';
 import ProjectSlotMachine from './Project-SLOTS.html?raw';
 import ProjectThisSite from './Project-PORTFOLIO.html?raw';
 
+import RAGPNG from '../../assets/PNG/RAG.png';
 import TodolyPNG from '../../assets/PNG/Todoly.png';
 import CSVPNG from '../../assets/PNG/CSVTOOL.png';
 import MoviePNG from '../../assets/PNG/BrownSquad.png';
@@ -14,6 +16,13 @@ import AssetPNG from '../../assets/PNG/AssetTracker.png';
 import SlotsPNG from '../../assets/PNG/Slots.png';
 import PortfolioSVG from '../../assets/SVG/HeaderBlack2.svg';
 const projects = [
+    {
+        name: 'RAG',
+        description: ProjectRAG,
+        imageURL: RAGPNG,
+        gitURL: 'https://github.com/dc91/RAG',
+        demoURL: ''
+    },
     {
         name: 'ToDoLY',
         description: ProjectTodoly,
